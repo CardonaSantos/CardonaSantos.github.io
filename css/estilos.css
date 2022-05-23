@@ -1,0 +1,733 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Grape+Nuts&family=Open+Sans:wght@300;400;600;700&family=Poppins:wght@300;400;600;700&family=Shadows+Into+Light&display=swap');
+
+:root{
+    --padding-container: 100px 0;
+    --color-title: #001A49;  
+}
+
+body {
+    
+font-family: 'Open Sans', sans-serif;
+/*Las capas o contenedores son unos recuadros o espacios rectangulares que pueden colocarse en cualquier parte de la página. En ellas, podemos insertar contenido HTML. Su utilidad principal es visual, permitiendo organizar y dar estructura y diseño a las páginas HTML.*/
+
+}
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+    
+    padding:var(--padding-container);
+
+}
+/*Se conoce como hero image a la imagen de gran tamaño que aparece como el elemento visualmente más destacado de una página web. Generalmente se ubica en el centro de la página de inicio, al frente de cualquier otro objeto o, a lo sumo, con algunas líneas de texto encima.*/
+.hero{
+    width: 100%;
+    height: 100vh;
+    min-height: 600px;
+    max-height: 800px;
+    position: relative;
+    display: grid;
+    grid-template-rows: 100px  lfr;
+    color: #fff;
+}
+/*cuando manipulamos el hero de arruiba manipulamos todos los elementos que se encuantrand dentro de este.*/
+.hero::before{
+    content:"";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(180deg, #0000008c 0%, #0000008c 100%), url('../images/japan1.jpg');
+    background-size: cover;
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 50% 95%, 0 80%);
+    z-index: -1;
+}
+
+/*Nav aquí comenzará el NAV-representa una sección de una página cuyo propósito es proporcionar enlaces de navegación, ya sea dentro del documento actual o a otros documentos. Ejemplos comunes de secciones de navegación son menús, tablas de contenido e índices */
+.nav{
+    --padding-container: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+/*nav title son los  titulos por asi decirlo*/
+.nav__title{
+    font-weight: 300;
+}
+
+.nav__link{
+    margin-left:auto;
+    padding: 0;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: max-content;
+    gap: 2em;
+
+    
+}
+
+.nav__items {
+    list-style: none; /*esto es para modificar las lista de items., quitará el estilo de listas */
+}
+/*nav link son los elementos y links dentro de la page, con left hacemos que se pasen a la derecha, esto pasa porque estamos usando flexbox.*/
+
+.nav__linkos{
+    color: #fff; 
+    text-decoration: none;
+
+}
+.nav__menu{
+    margin-left:auto;
+    cursor:pointer; 
+    display:none;
+}
+/*con left hacemos que se ponga al lado, ponter cambia el cursor y none hace que no lo veamos a menos que usemos un telefono.*/
+
+
+/*este es el nav del menu que se abre, la imagen.*/
+.nav__img{
+    display: block;
+    width: 30px;
+
+}
+
+.nav__close{
+    
+    display: var(--show, none);
+}
+/*Modificacion de hero container. El contenedor de la sección*/
+
+.hero__container{
+    max-width: 800px;
+    display:grid;
+    --padding-container: 0;
+    grid-auto-rows: max-content; 
+    align-content: center;
+    gap: 1em;
+    padding-bottom: 100;
+    text-align: center;
+}
+/*hero title es el titutlo de la pagina.*/
+.hero__title {
+    font-size: 3rem;
+
+}
+
+.hero__paragraph {
+    margin-bottom:20px;
+}
+
+.cta {
+    display: inline-block;
+    background-color: #0d9b9b;
+    justify-self: center;
+    color:white;
+    text-decoration: none;
+    padding:13px 20px;
+    border-radius:30px;
+}
+
+.about{
+    text-align: center;
+}
+
+.subtitle{
+    color: var(--color-title);
+    font-size:2rem;
+    margin-bottom:25px;
+}
+
+
+.about__paragraph{
+    line-height: 1.7;
+
+}
+.about__main{
+    padding-top: 80px;
+    display:grid;
+    width: 90%;
+    margin:0 auto;
+    gap:1em;
+    overflow:hidden;
+    grid-template-columns: repeat(auto-fit, minmax(260px, auto));
+}
+
+
+.about__icons{
+    display: grid;
+    gap: 1em;
+    justify-items: center;
+    width: 260px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.about__icon{
+    width:40px;
+}
+
+/*COMENZAMOS CON KNOWLEDEGE*/
+
+.knowledge{
+    background-color: #e5e5f7;
+
+background-image:  radial-gradient(#444cf7 0.5px, transparent 0.5px), radial-gradient(#444cf7 0.5px, #e5e5f7 0.5px);
+background-size: 20px 20px;
+background-position: 0 0,10px 10px;
+overflow: hidden;
+}
+
+.knowledge__container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+    align-items: center; 
+
+}
+
+.knowledge__picture{
+    max-width: 500px;
+
+}
+
+.knowledge__paragraph{
+    line-height:1.7;
+    margin-bottom: 15px;
+}
+.knowledge__img{
+    width: 100%;
+    display: block;
+
+}
+
+/*Ahora aquí le daremos estilos y parametros al la seccion de precios.No3.*/
+/*Price es el contenedor principal*/
+.price{
+    text-align: center;
+}
+/*price table es la tabla que contiene la informacion de los precios y planes.*/
+.price__table{
+    padding-top: 60px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.5em;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.price__element{
+    background-color: #e5e5f7;
+    text-align: center;
+    border-radius:10px;
+    width:330px;
+    padding:40px;
+    --color-plan: #696871;
+    --color-price: #1D293F;
+    --bg-cta:#fff;
+    --color-cta: #545404;
+    --color-items: #696871;
+}
+
+.price__element--best{
+    width:370px;
+    padding:60px 40;
+    background-color: #FF7143;
+    --color-plan: rgb(255 255 255/75%);
+    --color-price: #fff;
+    --bg-cta:#9F3919;
+    --color-cta: #FFF;
+    --color-items: #fff;
+
+}
+
+
+.price__name{
+    color: var(--color-plan);
+    margin-bottom:15px;
+    font-weight:300;
+
+}
+
+.price__price{
+    font-size: 2.5rem;
+    color: var(--color-price);
+
+}
+
+.price__items{
+    margin-top: 35px;
+    display:grid;
+    gap: 1em;
+    font-weight: 300;
+    font-size: 1.3rem;
+    margin-bottom: 50px;
+    color: var(--color-items);
+}
+
+.price__cta{
+    background-color: var(--bg-cta);
+    display: block;
+    padding: 20px 0;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    color: var(--color-cta);
+    box-shadow: 0 0 1px rgba(0, 0, 0, .5); 
+}
+
+/*AQUI REALIZAREMOS LAS MODIFICACIONES DE LOS TESTIMONIOS CON SLASH.*/
+
+.testimony{
+    background-color: #e5e5f7;
+}
+/*TC es el contenedor del slider*/
+.testimony__container{
+    display: grid;
+    grid-template-columns: 50px 1fr 50px;
+    gap:1em;
+    align-items: center;
+}
+/*la caja del contenedor del testimonio.*/
+
+.testimony__body{
+    display:grid;
+    grid-template-columns: 1fr max-content;
+    justify-content: space-between;
+    align-items: center;
+    gap:2em;
+    grid-column:2/3;
+    grid-row:1/2;
+    opacity:0 ;
+    pointer-events: none; /*para que no podas seleccionar el texto de ahí.*/
+}
+/*con unset para que vaya a la propiedad original*/
+.testimony__body--show{
+    pointer-events: unset;
+    opacity: 1;
+    transition: opacity 1.5s ease-in-out;
+}
+/*con esto modificamos como ver los perfiles de los usuarios.*/
+.testimony__img{
+    width:250px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: 50% 30%;
+}
+/*AHORA MODIFICAMOS LOS TEXTOS*/
+
+.testimony__texts{
+    max-width: 700px;
+}
+/*Este es el span.*/
+.testimony__course{
+    background-color: royalblue;
+    color: #fff;
+    display: inline-block;
+    padding: 5px;
+}
+
+
+
+.testimony__arrow{
+    width:90%;
+    cursor: pointer;
+}
+
+/*  AQUI ARREGLAREMOS LAS PREGUNTAS*/
+
+.questions{
+    text-align: center;
+
+}
+
+.questions__container{
+    display: grid;
+    gap: 2em;
+    padding-top: 50px;
+    padding-bottom: 100px; 
+}
+
+.questions__padding{
+    padding: 0;
+    transition: padding .3s;
+    border: 1px solid #5454D4;
+    border-radius:6px;
+}
+/*con question padding y padding add, pomeos crear el script de deslizamiento.*/
+.questions__padding--add{ /*con esto añadimos otro padding al texto de las preguntas, junto a la funcion del script.*/
+    padding-bottom: 30px;
+
+}
+
+/*Este es ek contenedor de las preguntas*/
+
+.questions__answer{
+    padding: 0 30px 0;
+    overflow: hidden;
+    /*gracias a esta propiedad y otra añadida que es: question__show podemos hacer que el parrafo desaparezca y lo preparemos para darle funcion en js.*/
+}
+
+
+/*questions arrow es el span que tiene  la imagen.*/
+.questions__arrow{
+    border-radius: 50%;
+    background-color:#001A49;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: flex-end;
+    margin-left: 10px;
+    transition: transform .3s; 
+}
+/*este es el contenerdor de del h3*/
+.questions__title {
+    text-align: left;
+    display: flex;
+    font-size: 20px;
+    padding: 30px 0 30px;
+    cursor: pointer;
+    color: var(--color-title);
+    justify-content: space-between;
+}
+/*Este es el parrafo dentor de los pading de answer.*/
+.questions__show{
+    text-align: left;
+    height: 0;
+    transition: .3s;
+}
+/*añadimos una nueva propiedad a la clase arrow para añadir otros parametros.*/
+.questions__arrow--rotate{
+    transform: rotate(180deg);
+}
+
+
+.questions__img{
+    display: block;
+}
+
+/*Ahora vamos a darle estilo al footer parte final de la pagina...*/
+/*parrafo*/
+.questions__copy{
+    
+    width: 60%;
+    margin: 0 auto;
+    margin-bottom: 30px; /*ponemos el margin bottom de ultimo para que lo aplique y el boton se separe.*/
+}
+/* Footer */
+.footer{
+    background-color: #1D293F;
+}
+
+.footer__title{
+    font-weight: 300;
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+.footer__title, .footer__newsletter{
+    color: #fff;
+}
+
+/*fooder container que es el contenedor del elemento nav y del form*/
+
+.footer__container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #fff;
+    padding-bottom: 60px;
+}
+
+
+.nav--footer{
+    padding-bottom: 20px;
+    display: grid;
+    gap: 1em;
+    grid-auto-flow: row;
+    height: 100%;
+}
+
+
+/*nav link footer que es el elemento de los enlaces.*/
+
+.nav__link--footer{
+    display: flex;
+    margin: 0;
+    margin-right: 20px;
+    flex-wrap: wrap;
+}
+
+/*Otra propiedad de imputs es el div que contiene al input.*/
+.footer__inputs{
+    margin-top: 10px;
+    display: flex;
+    overflow: hidden;
+}
+/**CON ESSTO MODIFICAMOS EL INPUT DONDE SE INTRODUCIRÁ EÑ EMAIL Y SU SUBMIT.*/
+.footer__input{
+    background-color: #fff;
+    height:50px;
+    display:block;
+    padding-left: 10px;
+    border-radius: 6px;
+    font-size:1rem;
+    outline:none;
+    border: none;
+    margin-right: 16px;
+}
+
+/*CON ESTO PODEMOS HACER QUE NUESTRO SUBMIT NO SE ROMPA A LA HORA DE ACHICAR LA PAGINA.*/
+.footer__submit{
+    margin-left: auto;/*para que lo mande a la drecha.*/
+    display: inline-block;
+    height:50px;
+    padding: 0 20px;
+    background-color: #2091F9;
+    border:none;
+    font-size:1rem;
+    color: white;
+    border-radius:6px;
+    cursor: pointer;
+}
+
+.footer__copy{
+    --padding-container: 30px 0; /*el cero va de ultimo para que el texto de hasta abajo no quede muy pegado a la pantalla inferior.*/
+    text-align: center;
+    color: white;
+}
+
+.footer__copyrigth{
+    font-weight: 300;
+
+}
+/*ESTOS MODIFICAN LOS ICONOS DE LAS REDES SOCIALES.*/
+
+.footer__icons{
+    
+    margin-bottom: 10px;
+}
+
+.footer__img{
+    width: 30px;
+
+}
+
+
+/*DE AHORA EN ADELANTE VAMOS A ADAPTARLA A DISPOSITIVOS MOVILES.*/
+@media(max-width:800px){ /*CON ESTO LE DECIMOS QUE, AL LLEGAR AL MAXIMO DE 800 SE MOSTRARÁ EL MENU DESPLEGABLE.*/
+    .nav__menu {
+        display: block;
+    }
+
+    .nav_linkos--menu{ /*este es el nombre de nustro primer menu de links y por ende tiene ese nombre, muy importante no olvidar y renombrar los las etiquetas para no confunedirse.*/
+        position: fixed;/*al llegar a cierta medida los enlaces */
+        background-color: black;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly; /*Esto reparte el espacio equitativamente.*/
+        align-items: center;
+        z-index: 100;
+        opacity: 0;
+        pointer-events: none;
+        transition: .7s opacity;
+        /*Para que es sobreponga de todo el contenido.*/
+        /*  Con todo esto ya listo, haríamos que el menu pase a ser vertical en telefonos y verse bien sin romperse.*/
+    }
+
+    .nav_linkos--show{/*Este es un modificador del navlink de arriba, para mostrar el icono close.*/
+        --show:block;/*Al momento de que un elemento tenga esta clase la custom priopieti show, ahora exista y tenga el valor de block, para que muestre a los elementos .*/
+        opacity: 1;
+        pointer-events: unset;
+    }
+    .nav__close{/*con esto modificamos el menu de cierre, más no sus propiedades de color. hacemos que se mueva al izquierda de arriba*/
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        width: 30px;
+        cursor: pointer;
+    }
+/*de ahora en adelante modificaremos la pagina para que sea adaptable a DISPOSITIVOS MOVILES.*/
+    .hero__title{
+        font-size: 2.5rem;
+    }   
+
+    .about__main{
+        gap: 2em;
+
+    }
+/*el ultimo de su tipo, que seri el que esta pegado a la izquierda.*/
+    .about__icons:last-of-type{
+        grid-column: 1/-1;/*que vaya a la primera linea de las clomnas a la ultima, lo que hará es ocupar toda la grid, centrandolo.*/
+
+
+
+    }
+    .knowledge__container{
+        grid-template-columns: 1fr;
+        grid-template-rows: max-content 1fr;
+        gap: 3em;
+        text-align: center;
+    }
+/*con los de abajo hacemos que la imagen de sl. se centre arriba y el texto abajo sin romperse cuando usamos dispositivos mobiles.*/
+    .knowledge__picture{
+        grid-row: 1/2;
+        justify-self: center;
+    }
+
+
+    /*ahor el slash.*/
+    .testimony__container{
+        grid-template-columns: 30px 1fr 30px;
+    }
+
+    .testimony__body{
+        grid-template-columns: 1fr;
+        grid-template-rows: max-content max-content;
+        gap: 3em;
+        justify-items: center;
+    }
+
+
+
+    .testimony__img{
+        width: 200px;
+        height:200px;
+    }
+
+    .questions__copy{
+        width: 100%;
+
+    }
+    .footer__container{
+        flex-wrap: wrap;
+
+    }
+
+
+    .nav__link--footer{
+        width: 100%;
+        justify-items: center;
+    }
+
+    .nav__link--footer{
+        width: 100%;
+        justify-content: space-evenly;
+        margin: 0;
+
+    
+    }
+
+    .footer__form{
+        width: 100%;
+        justify-content: space-evenly;
+    }
+
+
+    .footer__input{
+        flex: 1;
+    }
+}
+
+
+
+@media(max-width:600px){
+    .hero__title{
+        font-size:2rem;
+    }
+
+    .hero__paragraph{
+        font-size:1rem;
+    }
+
+    .subtitle{
+        font-size: 1.8rem;
+    }
+
+    .price__element{
+        width:90%;
+
+    }
+
+    .price__element--best{
+        width: 90%;
+        /*padding: 40px,*/
+    }
+
+
+    .price__price{
+        font-size: 2rem;
+    }
+
+    .testimony{
+        --padding-container: 60px 0;
+    }
+
+    .testimony__container{
+        grid-template-columns: 29px 1fr 20px;
+        gap: .9em;
+    }
+
+
+    .testimony__arrow{
+        width: 100%;
+    }
+
+    .testimony__course{
+        margin: top 15px;
+    }
+
+
+    .questions__title{
+        font-size: 1rem;
+    }
+
+
+    .nav--footer{
+        padding: 0;
+        
+    }
+
+    .nav--footer{
+        padding-bottom: 60px;
+    }
+
+
+
+    .nav__link--footer{
+        justify-content:space-between;
+    }
+
+    .footer__inputs{
+        flex-wrap: wrap;
+    }
+
+    .footer__input{
+        flex-basis: 100%;
+        margin: 0;
+        margin-bottom:16px;
+    }
+
+    .footer__submit{
+        margin: 0;
+        width: 100%;
+    }
+
+
+
+    .footer__title{
+        justify-items: start;
+        margin-bottom: 15px;
+    }
+
+
+}
